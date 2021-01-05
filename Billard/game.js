@@ -34,7 +34,9 @@ export default class Game {
         let test4 = new Projectile(this.midPointX+2*distanceX, this.midPointY, 40, 'orange', {x: 0, y: 0}, this);
         let test5 = new Projectile(this.midPointX+2*distanceX, this.midPointY+80, 40, 'orange', {x: 0, y: 0}, this);
         let test6 = new Projectile(this.midPointX+2*distanceX, this.midPointY-80, 40, 'orange', {x: 0, y: 0}, this);
-        let test7 = new Projectile(this.midPointX+3*distanceX, this.midPointY, 40, 'orange', {x: 0, y: 0}, this);
+        let test8 = new Projectile(this.midPointX+3*distanceX, this.midPointY+40, 40, 'orange', {x: 0, y: 0}, this);
+        let test9 = new Projectile(this.midPointX+3*distanceX, this.midPointY-40, 40, 'orange', {x: 0, y: 0}, this);
+        let test7 = new Projectile(this.midPointX+4*distanceX, this.midPointY, 40, 'orange', {x: 0, y: 0}, this);
         
         
         this.projectiles.push(test1);
@@ -44,6 +46,8 @@ export default class Game {
         this.projectiles.push(test5);
         this.projectiles.push(test6);
         this.projectiles.push(test7);
+        this.projectiles.push(test8);
+        this.projectiles.push(test9);
         
     }
     togglePause() {

@@ -33,12 +33,12 @@ export default class Projectile {
         //     {this.velocity.y += 0.2;}
 
         //friction
-        this.velocity.y *= 0.992;
-        this.velocity.x *= 0.992;
+        this.velocity.y *= 0.99;
+        this.velocity.x *= 0.99;
 
         //stop ball
-        if (Math.abs(this.velocity.x) < 0.2) this.velocity.x = 0;
-        if (Math.abs(this.velocity.y) < 0.2) this.velocity.y = 0;
+        if (Math.abs(this.velocity.x) < 0.25) this.velocity.x = 0;
+        if (Math.abs(this.velocity.y) < 0.25) this.velocity.y = 0;
               
     }
 }

@@ -23,7 +23,8 @@ window.addEventListener('click', (event) => {
     const angle = Math.atan2(event.clientY - game.whiteBall.y, event.clientX - game.whiteBall.x);
     const x = Math.cos(angle);
     const y = Math.sin(angle);
-    let forceVector = {x: 6*x, y: 6*y};
+    const speed = 10;
+    let forceVector = {x: speed*x, y: speed*y};
     game.hit(forceVector);    
 })
 
