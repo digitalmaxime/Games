@@ -1,12 +1,18 @@
 export default function detectCollision(ball, object) {
+    //Dont want to detect collision with itself
     if (ball === object) return {x: 0, y:0};
+    
+    //declare de force Vector to be applied to the ball
+    const forceVector = {x: 0, y:0};
 
+    //angle between the ball and the object
     const angle = Math.atan2((ball.y-object.y), (ball.x-object.x));
     let ballEdgeX = ball.radius * Math.abs(Math.cos(angle));
     let ballEdgeY = ball.radius * Math.abs(Math.sin(angle));
     let objectEdgeX = object.radius * Math.abs(Math.cos(angle));
     let objectEdgeY = object.radius * Math.abs(Math.sin(angle));
 
+    //if collision
     if (ball.x + ballEdgeX >= object.x - objectEdgeX && ball.x - ballEdgeX <= object.x + objectEdgeX &&
         ball.y + ballEdgeY >= object.y - objectEdgeY && ball.y - ballEdgeY <= object.y + objectEdgeY) {
         
@@ -26,25 +32,9 @@ export default function detectCollision(ball, object) {
         const dotProduct = (radiusVector.x * object.velocity.x ) + ( radiusVector.y * object.velocity.y);
         
         //force Appliquee sur la balle (transferee de l'objet a la balle)
-        const forceVector = {
-            x : radiusVector.x * Math.abs(dotProduct), 
-            y: radiusVector.y * Math.abs(dotProduct)
-        };
-        
-        let resultVector = {
-            x : ball.velocity.x + forceVector.x, 
-            y : ball.velocity.y + forceVector.y
-        };
-
-        console.log('velocity x : ' + ball.velocity.x);
-        console.log('radiusVector x : ' + radiusVector.x);
-        console.log('   forceVector x : ' + forceVector.x);
-        console.log('   dotProduct, (force * objVelocity : )' + dotProduct);
-        console.log('   resultV . x : ' + resultVector.x);
-        //return resultVector;
-        return forceVector;
+        forceVector.x = radiusVector.x * Math.abs(dotProduct);
+        forceVector.y = radiusVector.y * Math.abs(dotProduct);
     }  
+    return forceVector;
 
-    //else return ball.velocity;
-    else return {x: 0, y:0};
 }

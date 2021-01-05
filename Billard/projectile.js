@@ -24,8 +24,21 @@ export default class Projectile {
         if (this.y - this.radius <= 0 || this.y + this.radius >= this.game.gameHeight) {
             this.velocity.y *= -1;
         }
+        this.x += this.velocity.x;
+        this.y += this.velocity.y;
         
-        this.x += this.velocity.x;// * this.speed;
-        this.y += this.velocity.y;// * this.speed;
+        // downward vertical acceleration 
+        // if ((this.y + this.radius) < this.game.gameHeight
+        //     && this.y - this.radius > 0) 
+        //     {this.velocity.y += 0.2;}
+
+        //friction
+        this.velocity.y *= 0.992;
+        this.velocity.x *= 0.992;
+
+        //stop ball
+        if (Math.abs(this.velocity.x) < 0.2) this.velocity.x = 0;
+        if (Math.abs(this.velocity.y) < 0.2) this.velocity.y = 0;
+              
     }
 }
