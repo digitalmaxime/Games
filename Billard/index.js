@@ -6,8 +6,6 @@ canvas.height = window.innerHeight-20;
 const ctx = canvas.getContext('2d');
 
 const game = new Game(canvas.width, canvas.height);
-game.start();
-
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); 
@@ -16,6 +14,7 @@ function animate() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     game.update();
     game.draw(ctx);
+    
     requestAnimationFrame(animate);
 }
 

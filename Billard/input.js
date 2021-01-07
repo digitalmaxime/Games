@@ -1,22 +1,14 @@
-import Game from "./game.js";
 
 export default  class InputHandler {
     constructor(game) {
         document.addEventListener("keydown", (event)=> {
             switch(event.keyCode) {
-                // case 37: 
-                //     paddle.moveleft();
-                //     break;
-
-                // case 39:
-                //     paddle.moveright();
-                //     break;
                 
-                case 27:
+                case 27: // esc 
                     game.togglePause();
                     break;
 
-                case 32:
+                case 32: //space bar
                     game.start();
                     break;
             }
