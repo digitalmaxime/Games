@@ -1,19 +1,39 @@
 import Game from './game.js';
 
-const canvas = document.querySelector('canvas');
-canvas.width = window.innerWidth-20;
-canvas.height = window.innerHeight-20;
-const ctx = canvas.getContext('2d');
 
-const game = new Game(canvas.width, canvas.height);
+// const  canvas1 = document.getElementById('gameBorder');
+const  canvas2 = document.getElementById('gamePlaymat');
+
+// const fullHeight = window.innerHeight;
+// const fullWidth = 2*fullHeight; //respect sizing of actual pool table
+const fullWidth = window.innerWidth; //respect sizing of actual pool table
+const fullHeight = fullWidth/2; //respect sizing of actual pool table
+
+// canvas1.width = fullWidth;
+// canvas1.height = fullHeight;
+
+canvas2.width = fullWidth-fullWidth/5;
+canvas2.height = fullHeight-fullHeight/5;
+
+// const ctx1 =  canvas1.getContext('2d', { alpha: false });
+const ctx2 =  canvas2.getContext('2d', { alpha: false });
+
+const game = new Game( canvas2.width,  canvas2.height);
+
+// ctx1.fillStyle = 'rgb(240, 0, 0)';
+// ctx1.fillRect(0, 0,  canvas1.width,  canvas1.height);//backgroung border
 
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); 
-    ctx.beginPath();
-    ctx.fillStyle = 'rgba(50, 200, 50, 0.5)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx2.clearRect(0, 0,  canvas2.width,  canvas2.height); // TODO
+    
+    //ctx.beginPath();
+    ctx2.fillStyle = 'rgb(45, 195, 45)';
+    ctx2.fillRect(0, 0,  canvas2.width,  canvas2.height);
+    // ctx2.fillStyle = 'rgba(50, 200, 50, 0.5)';
+    // ctx2.fillRect(25, 25,  canvas2.width,  canvas2.height);
+    
     game.update();
-    game.draw(ctx);
+    game.draw(ctx2);
     
     requestAnimationFrame(animate);
 }

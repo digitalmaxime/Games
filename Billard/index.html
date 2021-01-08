@@ -7,17 +7,28 @@
     <title>Document</title>
 </head>
 <body>
-    <canvas id="gameScreen" width="200" height="100" style="border:1px solid #000000;">
-
-    </canvas>
+    <div id="container">
+        <div id='game'>
+            <canvas id="gamePlaymat" >
+                Your browser does not support HTML5 Canvas.
+            </canvas>
+        </div>
+    </div>
     
     <script type="module" src="./index.js"></script>
 </body>
 </html>
-
-
-
-
-<!-- aime! -->
-<!-- <img src="./assets/images/aime.png" id="aime" width=70 height=70> -->
-
+<style>
+    #container {
+        position: absolute;
+        background-color: red;
+        height: 100%;
+        width: 100%;
+      }
+      #game {
+        position:absolute;
+        left: 10%;
+        top: 10%;
+        z-index:1;
+      }
+</style>

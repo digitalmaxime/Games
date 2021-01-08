@@ -5,11 +5,13 @@ export default  class InputHandler {
             switch(event.keyCode) {
                 
                 case 27: // esc 
-                    game.togglePause();
+                    //game.togglePause();
+                    game.showMenu();
                     break;
 
                 case 32: //space bar
                     game.start();
+                    game.togglePause();
                     break;
             }
         });
