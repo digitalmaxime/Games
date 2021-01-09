@@ -22,10 +22,10 @@ export default class Game {
     constructor(width, height){
         this.gameWidth = width;
         this.gameHeight = height;
-        this.whiteBall = new Ball(this.gameWidth /2-300, this.gameHeight/2, 40, 'white', {x: 0, y: 0}, this);
+        this.whiteBall = new Ball(this.gameWidth /2 -100, this.gameHeight/2, 40, 'white', {x: 0, y: 0}, this);
         this. balls = [];
         this.gameState = GAME_STATE.MENU;
-        this.currentLevel = 1;
+        this.currentLevel = 3;
         new InputHandler(this); 
     };
 

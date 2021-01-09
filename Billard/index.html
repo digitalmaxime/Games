@@ -7,13 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="container">
+    <!-- <div id="container">
         <div id='game'>
             <canvas id="gamePlaymat" >
                 Your browser does not support HTML5 Canvas.
             </canvas>
+            <canvas id="background-layer" width="900" height="500">
+                Doesnt Work..
+            </canvas>
         </div>
-    </div>
+    </div> -->
+    <canvas id="gamePlaymat" width="800" height="400">
+        Your browser does not support HTML5 Canvas.
+    </canvas>
     
     <script type="module" src="./index.js"></script>
 </body>
@@ -24,11 +30,27 @@
         background-color: red;
         height: 100%;
         width: 100%;
-      }
-      #game {
-        position:absolute;
-        left: 10%;
-        top: 10%;
-        z-index:1;
-      }
+    }
+    #game {
+    position:absolute;
+    left: 20px;
+    top: 20px;
+    }
+
+    canvas {
+        padding: 0;
+        margin: auto;
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    #background-layer { 
+        z-index: 1; 
+    }
+    #gamePlaymat{
+        color : blue;
+    }
 </style>
