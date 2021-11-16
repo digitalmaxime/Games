@@ -20,26 +20,48 @@ function animate() {
     ctx2.fillStyle = 'rgb(20, 150, 20)';
     ctx2.fillRect(0, 0,  canvas2.width,  canvas2.height); //playmat
     
-    //45 degree line
+    //45 degree line //topleft
     ctx2.beginPath();
-    ctx2.moveTo(-20,0);
-    ctx2.lineTo(canvas2.height-20, canvas2.height);
+    ctx2.moveTo(0,48);
+    ctx2.lineTo(30,78);
     ctx2.stroke();
     //another 45 degree line
     ctx2.beginPath();
-    ctx2.moveTo(200,0);
-    ctx2.lineTo(canvas2.height+200, canvas2.height);
+    ctx2.moveTo(48,0);
+    ctx2.lineTo(78, 30);
     ctx2.stroke();
 
-    //-45 degree line
+    //-45 degree line //bottom left
     ctx2.beginPath();
-    ctx2.moveTo(0,canvas2.height);
-    ctx2.lineTo(canvas2.height, 0);
+    ctx2.moveTo(0,canvas2.height-48);
+    ctx2.lineTo(30, canvas2.height-78);
     ctx2.stroke();
     //-45 degree line
     ctx2.beginPath();
-    ctx2.moveTo(200,canvas2.height);
-    ctx2.lineTo(canvas2.height+200, 0);
+    ctx2.moveTo(48,canvas2.height);
+    ctx2.lineTo(78, canvas2.height-30);
+    ctx2.stroke();
+    
+    //45 degree line //top right
+    ctx2.beginPath();
+    ctx2.moveTo(canvas2.width - 48, 0);
+    ctx2.lineTo(canvas2.height - 48, canvas2.height);
+    ctx2.stroke();
+    //another 45 degree line
+    ctx2.beginPath();
+    ctx2.moveTo(canvas2.width, 48);
+    ctx2.lineTo(canvas2.height, canvas2.height + 48);
+    ctx2.stroke();
+
+    //-45 degree line //bottom right
+    ctx2.beginPath();
+    ctx2.moveTo(canvas2.width - 48, canvas2.height);
+    ctx2.lineTo(canvas2.height - 48, 0);
+    ctx2.stroke();
+    //-45 degree line
+    ctx2.beginPath();
+    ctx2.moveTo(canvas2.width,canvas2.height - 48);
+    ctx2.lineTo(canvas2.height, -48);
     ctx2.stroke();
 
     game.update();
@@ -53,7 +75,7 @@ window.addEventListener('click', (event) => {
     const angle = Math.atan2(event.clientY - rect.top - game.whiteBall.y, event.clientX - rect.left - game.whiteBall.x);
     const x = Math.cos(angle);
     const y = Math.sin(angle);
-    const speed = 10;
+    const speed = 7;
     let forceVector = {x: speed*x, y: speed*y};
     game.hit(forceVector);    
     console.log(game.balls);

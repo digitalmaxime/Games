@@ -10,10 +10,11 @@ const GAME_STATE = {
     PAUSED: 2
 }
 const BALL = {
-    RADIUS : 40
+    RADIUS : 30
 }
 
 var collisionSound;
+var sunkInSound;
 var backgroundMusic = document.createElement("audio");
 backgroundMusic.src = "/assets/sounds/broadway.mp3"
 
@@ -22,7 +23,7 @@ export default class Game {
     constructor(width, height){
         this.gameWidth = width;
         this.gameHeight = height;
-        this.whiteBall = new Ball(this.gameWidth /2 -100, this.gameHeight/2, 40, 'white', {x: 0, y: 0}, this);
+        this.whiteBall = new Ball(this.gameWidth /2 -100, this.gameHeight/2, BALL.RADIUS, 'white', {x: 0, y: 0}, this);
         this. balls = [];
         this.gameState = GAME_STATE.MENU;
         this.currentLevel = 3;
@@ -38,7 +39,7 @@ export default class Game {
         backgroundMusic.play();
 
         //ball placement
-        let otherBalls = setupLevel(this.currentLevel, 40, this);
+        let otherBalls = setupLevel(this.currentLevel, BALL.RADIUS, this);
         this.balls = [this.whiteBall, ...otherBalls];
         console.log(this.balls);
         
@@ -55,7 +56,11 @@ export default class Game {
     }
 
     draw(ctx) {
-        this. balls.forEach( e => e.draw(ctx));
+        this. balls.forEach( (e)=> {
+            if (!e.isRemoved) {
+                e.draw(ctx)
+            }
+        });
 
         //PAUSE display
         if (this.gameState === GAME_STATE.PAUSED) {
@@ -90,8 +95,10 @@ export default class Game {
             this.gameState === GAME_STATE.MENU) {return};
 
         this. balls.forEach((e)=> {
-            let otherBalls =  this. balls.filter(ball => ball !== e);
+            if (e.isRemoved) {return;}
+            let otherBalls =  this.balls.filter(ball => ball !== e);
             otherBalls.forEach( other => {
+                if (other.isRemoved) {return;} // TODO simpler
                 if (detectCollision(e, other) === true) {
                     const forceVector = calculateForce(e, other);
                     e.velocity.x += forceVector.x;
@@ -108,6 +115,8 @@ export default class Game {
             });
             e.update(); 
         });
+        this.balls.filter(ball => ball.isRemoved); // TODO
+
         // this. balls.forEach((e)=> {
             
         //     let otherBalls =  this. balls.filter(ball => ball !== e);

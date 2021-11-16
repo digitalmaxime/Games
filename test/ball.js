@@ -1,5 +1,12 @@
-const HOLESIZE = 60;
 const BORDER = 35;
+
+const CORNER = {
+    TOPLEFT : 0,
+    TOPRIGHT : 1,
+    BOTTOMRIGHT : 2,
+    BOTTOMLEFT : 3,
+}
+
 export default class Ball {
     constructor(x, y, radius, color, velocity, game) {
         this.x = x;
@@ -9,7 +16,7 @@ export default class Ball {
         this.velocity = velocity;
         this.game = game;
         this.isRemoved = false;
-        this.isisRollingIn = false;
+        this.isRollingIn = false;
 
     }
     markForDeletion() {
@@ -24,13 +31,16 @@ export default class Ball {
     }
     update() {
         //check if ball is aligned to sink
-        if (((this.y < HOLESIZE || this.y > this.game.gameHeight - HOLESIZE) &&
-            (this.x < HOLESIZE || this.x > this.game.gameWidth - HOLESIZE))) 
+        console.log(Math.sqrt(this.velocity.x**2 + this.velocity.y**2));
+        if (
+            this.x<=78 && this.y<= 78
+            ) 
         {
-            this.isisRollingIn = true;
+            this.isRollingIn = true;
+            this.corner = CORNER.TOPLEFT;
         }
 
-        if (!this.isisRollingIn) {
+        if (!this.isRollingIn) {
             //check collision with right and left walls
             if (
                 (Math.round(this.x+this.radius - this.game.gameWidth + BORDER)*10 >= 10  || 
@@ -48,8 +58,8 @@ export default class Ball {
             // if ball is on its way to sunk
         } else {
             //check if ball if finished
-            if (this.y < 0 || this.y - this.game.gameHeight > 0  &&
-                this.x < 0 || this.x - this.game.gameWidth > 0 ) 
+            if (this.y < 15 || this.y - this.game.gameHeight > 15  &&
+                this.x < 15 || this.x - this.game.gameWidth > 15 ) 
             {
                 this.markForDeletion();
                 return;

@@ -40,7 +40,7 @@ function animate() {
 
     //experimentation avec rotation
     //ctx.drawImage(aime, 100, 100);
-    drawImageRot(aime, 100, 100, 70, 70, 20);
+    //drawImageRot(aime, 100, 100, 70, 70, 20);
     
     requestAnimationFrame(animate);
 }

@@ -1,11 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:;base64,=">
+
+</head>
+<body>
+
+  <!-- The Modal -->
+  <div class="modal">
+    <div class="modal-content">
+      <h1><span style="font-size: larger;" id="endScore">0</span></h1>
+      <p>Points</p>
+      <button id="startGameBtn">Start Game</button>
+    </div>
+  </div>
+
+  <div class="score">Score : <span id="scoreEl">0</span></div>
+
+  <canvas id="gameScreen" ></canvas>
+</body>
+</html>
+
+
 <style>
     
     #gameScreen {
     border: 1px solid black;
     }
+    div.score {
+        position: fixed;
+        top: 10;
+        left: 10;
+        width: 300px;
+        color: white;
+        border: 4px solid #cff39d;
+        user-select: none;
+      }
+      .modal {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .modal-content {
+        font-style: normal;
+        text-align: center;
+        padding: 10%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgb(92, 195, 255);
+        padding: 1rem 1.5rem;
+        width: 24rem;
+        border-radius: 0.5rem;
+    }
+    button {
+      width: 100%;
+      height: 30%;
+      padding: 15px 32px;
+      border-radius: 20px;
+      background-color: #4CAF50; /* Green */
+      cursor: pointer;
+      font-size: 16px;
+
+
+    }
 
 </style>
 
-<canvas id="gameScreen" ></canvas>
 
+
+<!-- <canvas id="gameScreen" ></canvas> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous">
+</script>
 <script type="module" src="./index.js"></script>
