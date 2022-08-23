@@ -1,0 +1,87 @@
+/* shift right animation */
+
+.move-right {
+    background-color: aquamarine;
+    animation-duration: 1.1s;
+    animation-name: moveRight;
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translate(0, 0)
+      }
+      
+      100% {
+        transform: translate(50px, 0);
+    }
+}
+
+.move-back-to-left {
+    background-color: aquamarine;
+    animation-duration: 1.1s;
+    animation-name: moveBackToLeft;
+}
+
+@keyframes moveBackToLeft {
+    0% {
+        transform: translate(0, 0)
+    }
+    70% {
+        transform: translate(50px, 0)
+    }
+    70.1% {
+        transform: translate(-150px, 0);
+    }
+
+    /* 75% {
+        transform: translate(40px, -20px);
+    } */
+
+    100% {
+        transform: translate(-100px, 0);
+    }
+}
+
+/* shift left animation */
+
+.move-left {
+    background-color: aquamarine;
+    animation-duration: 1.1s;
+    animation-name: moveLeft;
+}
+
+@keyframes moveLeft {
+    0% {
+        transform: translate(0, 0)
+      }
+      
+      100% {
+        transform: translate(-50px, 0);
+    }
+}
+
+.move-back-to-right {
+    background-color: aquamarine;
+    animation-duration: 1.1s;
+    animation-name: moveBackToRight;
+}
+
+@keyframes moveBackToRight {
+    0% {
+        transform: translate(0, 0)
+    }
+    70% {
+        transform: translate(-50px, 0)
+    }
+    70.1% {
+        transform: translate(150px, 0);
+    }
+
+    /* 75% {
+        transform: translate(40px, -20px);
+    } */
+
+    100% {
+        transform: translate(100px, 0);
+    }
+}

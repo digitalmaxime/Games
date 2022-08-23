@@ -1,0 +1,49 @@
+.grid-container {
+    position: absolute;
+    left: 120px;
+    top: 150px;
+    background-color: #2196F3;
+    padding: 10px;
+    /* overflow: hidden; */
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    overflow: hidden;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    padding: 3px;
+    margin: 0px;
+    transition: opacity .5s;
+}
+
+.grid-item:hover {
+    background-color: rgb(185, 184, 226);
+}
+
+.grid-item:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.arrow {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+}
+
+.arrow:hover {
+    background-color: #5b5b5c;
+}
+
+.arrow:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+        inset 2px 2px 3px rgba(0, 0, 0, .6);
+}

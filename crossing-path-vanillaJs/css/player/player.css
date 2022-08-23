@@ -1,0 +1,6 @@
+.player {
+    background-color: blueviolet;
+    color: aquamarine;
+    z-index: 2;
+    position:absolute;
+}

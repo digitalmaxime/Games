@@ -1,0 +1,52 @@
+/* arrow positions  */
+
+#arrowRight1 {
+    left:170px;
+    top: 20px;
+}
+#arrowRight2 {
+    left:170px;
+    top: 70px;
+}
+#arrowRight3 {
+    left:170px;
+    top: 120px;
+}
+#arrowLeft1 {
+    left:-30px;
+    top: 20px;
+}
+#arrowLeft2 {
+    left:-30px;
+    top: 70px;
+}
+#arrowLeft3 {
+    left:-30px;
+    top: 120px;
+}
+
+#arrowUp1 {
+    left:20px;
+    top: -30px;
+}
+#arrowUp2 {
+    left: 70px;
+    top: -30px;
+}
+#arrowUp3 {
+    left:120px;
+    top: -30px;
+}
+
+#arrowDown1 {
+    left:20px;
+    top: 170px;
+}
+#arrowDown2 {
+    left: 70px;
+    top: 170px;
+}
+#arrowDown3 {
+    left:120px;
+    top: 170px;
+}
